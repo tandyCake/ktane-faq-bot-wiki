@@ -9,18 +9,20 @@ First, verify that your question has truly not been answered here. Sometimes, we
     - Assuming you have a github account (see [What is GitHub? Is it necessary to get into modding?](https://github.com/BlckHawker/test/edit/main/README.md#what-is-github-is-it-necessary-to-get-into-modding) for more details), you can create your own repository using the modkit. Press `Use this template` -> `Create new repository`. Add a name and press `Create repository`. Clone your project to your device.
     - If you don't have a github account, you can get the project by pressing `Code` -> `Download zip`. Extract the project. It is recommended that you change the name of the folder to be whatever the name of your mod is: "The Simpleton" for example.
 2. Download [Unity Hub](<https://unity.com/download>) (optional for Windows)
-   
+
 Unity Hub is a tool that allows you to see all of your Unity projects in one place. It's optional, but highly recommended if you plan to make multiple Unity projects. **If you're a Mac/Linux user, this is not optional** for reasons explained in the next step. You can add a Unity project by selecting `Open` and selecting the folder of your project. It should be the one that contains `Assets` inside of it.
-4. Install [Unity version 2017.4.22f1](<https://unity.com/releases/editor/whats-new/2017.4.22>)
+
+3. Install [Unity version 2017.4.22f1](<https://unity.com/releases/editor/whats-new/2017.4.22>)
 
 This is the Unity version that the game was created on. Although you could theoretically use a different version of Unity to create mods, it's not recommended as there could be several game breaking bugs. If you installed Unity Hub, the application will ask you if you want to add any modules. **Mac and Linux users should add the \"Windows Build Support\" module** as it's required for the build of the mod to be created. If you missed this step, you can still add it by going to Unity Hub -> `Installs` -> press the gear next to the `2017.4.22f1` editor -> `Add modules` -> select `Windows Build Support` -> select `Continue`. Wait for said module to install. Close Unity Hub and any Unity projects you have open in order to verify it installed successfully. Before you open your project, make sure your editor version is set to `2017.4.22f1`.
-5. Install an IDE
+
+4. Install an IDE
 
 An IDE (Integrated Development Environment) is a tool that makes writing code **much** easier. It allows you to see what is wrong with your code without needing to constantly check Unity. It also color codes your words and has autocompletion which will make writing code quicker. Although you can write scripts by just using Notepad, it is not recommended. The most common IDEs for Windows are Visual Studio (VS) and Visual Studio Code (VS Code). Here are the [installations to both](<https://visualstudio.microsoft.com/downloads/>). Mac and Linux users should use [Rider](<https://www.jetbrains.com/rider/>). All require some setup to get working with Unity. Here are the steps to do so (Ignore the steps about installing packages as that is not supported in the Unity version for KTANE):
     - [VS Code](<https://code.visualstudio.com/docs/other/unity>)
     - [VS](<https://learn.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows>)
     - [Rider](<https://www.jetbrains.com/help/rider/Unity.html#start-using-rider-with-your-unity-project>)
-6. Add a plugin template (Optional)
+5. Add a plugin template (Optional)
 There are several pre-made templates that streamline the process of creating mods. Although optional, they are very useful for beginners. They can be found by pressing `KeepTalking ModKit` -> `Plugins` at the top of the Unity editor. Which one you use is up to personal preference.
 These are the steps to set up your project for modding. See other [Getting Started](https://github.com/BlckHawker/test/edit/main/README.md#getting-started) commands if you require assistance with how to start modding.
 ## I don’t know how to start learning C#/Unity. How do I know when I learned enough to start modding?
@@ -129,7 +131,9 @@ There are two ways:
 ## How long does it take for a request to be fulfilled? Can I speed up the process in any way?
 Being a contributor the repository is an unpaid voluntary position. They are not obligated to get requests done within a certain amount of time. Although you cannot make a contributor get to a request faster, you can make the process of reviewing the request faster by following the [Repo Maintainer Responsibilities](<https://docs.google.com/document/d/10rabFJES6avb8ime3Cw5LCd9p0663PbqVqzUrfehYac/edit?usp=sharing>) checklist. It's not necessary to follow all of the steps, but the more that are done correctly, the faster the request will be handled.
 ## How do I become a maintainer?
-To become a maintainer, you must show that you have experience with git and handling requests competently. So you must become a contributor first.\nAs a contributor, It's recommended having a fork of the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>) so you can easily make PRs. You can then make PRs of requests in [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985) (see [How do I add my manual to the repository of manuals?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-add-my-manual-to-the-repository-of-manuals) and [I would like to make changes on my manual that is already on the Repository of Manuals.](https://github.com/BlckHawker/test/edit/main/README.md#i-would-like-to-make-changes-on-my-manual-that-is-already-on-the-repository-of-manuals)). Be sure to bip (react to the request with :bip:) in order to notify other contributors that you are working on the request. Once you make your PR for a request, react to the request with :solved: in order to notify others that you have completed the request. Once you have handled enough requests that you feel comfortable doing it, you can then message a maintainer, and they will have a discussion with others if you would be a good candidate. The more requests you handle correctly, the higher your chances are of becoming a maintainer.
+To become a maintainer, you must show that you have experience with git and handling requests competently. So you must become a contributor first.
+
+As a contributor, It's recommended having a fork of the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>) so you can easily make PRs. You can then make PRs of requests in [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985) (see [How do I add my manual to the repository of manuals?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-add-my-manual-to-the-repository-of-manuals) and [I would like to make changes on my manual that is already on the Repository of Manuals.](https://github.com/BlckHawker/test/edit/main/README.md#i-would-like-to-make-changes-on-my-manual-that-is-already-on-the-repository-of-manuals)). Be sure to bip (react to the request with :bip:) in order to notify other contributors that you are working on the request. Once you make your PR for a request, react to the request with :solved: in order to notify others that you have completed the request. Once you have handled enough requests that you feel comfortable doing it, you can then message a maintainer, and they will have a discussion with others if you would be a good candidate. The more requests you handle correctly, the higher your chances are of becoming a maintainer.
 
 ## Common Errors
 ### My text is going through the back of the bomb
@@ -167,11 +171,15 @@ Some common exception(s):
 
 **Good**
 
-![image](https://github.com/user-attachments/assets/923f0f3a-a2e2-4354-81ae-3c5fe10473b2)
+![image](https://github.com/user-attachments/assets/0aca56eb-8550-4c61-9963-8a70c888d9db)
+
 
 **Bad**
 
-![image](https://github.com/user-attachments/assets/3c1a391f-dbb4-4c6b-b522-a7bf92a2ef41)
+![image](https://github.com/user-attachments/assets/64e5c1e9-db4c-4d9e-9090-49ae8b39f706)
+
+
+
 
 
 
@@ -245,7 +253,7 @@ Anything else you see in a log is done by the LFA parser and needs to be added t
     - There is an optional property called `displayName` which can be seen for the mods `ASCII Art` and `Binary Cipher`. This should be only added to the object if the preferred display name is different than the `loggingTag`
 ```
 {
-    tmoduleID: "insertModIdHere",
+    moduleID: "insertModIdHere",
     loggingTag: "insertLoggingTagHere",
     matches: [
         {
