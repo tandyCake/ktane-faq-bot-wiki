@@ -74,11 +74,17 @@ Download and extract the [manual template](<https://ktane.timwi.de/More/Template
         * [Javascript](<https://www.youtube.com/watch?v=Ihy0QziLDf0&list=PLZPZq0r_RZOO1zkgO4bIdfuLpizCeHYKv>) (will rarely be used for basic manuals)
     * [Video demonstration](<https://youtu.be/YobuGSBl3i0?t=10097>)
 3. **Verify your pages don't exceed the page boundaries.** This can be done by pressing Alt + P in the browser to enable developer mode. If you see red on at the top/bottom of your page, you are exceeding the boundaries, and should move your content to a new page. It's okay if there is a little red, but there shouldn't be any over the words/pictures.
-* **Good**
-**INSERT IMAGE HERE**
-* **Bad**
-**INSERT IMAGE HERE**
-4. **Make your SVG (image in the top right of the manual)**: A module svg's can be made in [inkscape](<https://inkscape.org>). A template of the svg can be found in the `HTML\\img\\Component` folder. Rename `Module Name.svg` to the name of the mod. Be sure to change the appropriate HTML in your manual to have this name change as well. Otherwise it will not show up in the manual.
+
+**Good**
+
+![image](https://github.com/user-attachments/assets/1a5ca5e3-51ff-41b1-90b5-72d70476dfce)
+
+ **Bad**
+ 
+![image](https://github.com/user-attachments/assets/f680e656-1103-46a4-93b8-9e208be5f985)
+
+
+4. **Make your SVG (image in the top right of the manual)**: A module svg's can be made in [inkscape](<https://inkscape.org>). A template of the svg can be found in the `HTML\img\Component` folder. Rename `Module Name.svg` to the name of the mod. Be sure to change the appropriate HTML in your manual to have this name change as well. Otherwise it will not show up in the manual.
     * [Inkscape tutorial](<https://www.youtube.com/watch?v=fzk-suGcqrc&ab_channel=LogosByNick>)
 5. **Make the JSON**. This should only be done once the mod is fully finished and published to steam.\n  * Go to the [Repository of Manual Pages](<https://ktane.timwi.de>) -> `Tools` -> `Create new module`. Fill out the information and press `Generate JSON`. Please verify that no other mod shares any of the following information:
     * Name
@@ -111,9 +117,9 @@ There are two ways:
     1. **Get the up-to-date version of the manual.** It can be found on the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>). It's possible that a maintainer cleaned up your manual before publishing it to the repo. Always update your manual before making changes even if you don't think any changes have been made.
         1. Open the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>) in your browser and navigate to the [HTML folder](<https://github.com/Timwi/KtaneContent/tree/master/HTML>).
         2. Type in the name of the manual followed by `.html` and select the correct option. Example gif trying to find `Not Colored Squares.html`
+           ![gitSearch](https://github.com/user-attachments/assets/dc1ec06f-db96-499f-95a3-b38985c6d405)
         3. Press the download button in the top right of the file and replace the old version of the mod
-    **INSERT IMAGE 1 HERE**
-    **INSERT IMAGE 2 HERE**
+        ![image](https://github.com/user-attachments/assets/6198734f-2126-46c9-8d2a-39d5033883f9)
     2. **Make your changes**
     3. **Lint your manual** the same way you did while creating the manual.
     4. **Publish your changes for review**. These are the same steps as uploading a new manual. Run {add-manual} and look at step two for more details.
@@ -143,7 +149,10 @@ The `[{InsertModNameHere} #{InsertModuleIdHere}]` format is what the LFA looks f
 
 It's highly recommend making your own log function, so you don't have to spell the mod name and id every single time:
 ```cs
-public void Log(string message) {Debug.Log($"[InsertModNameHere #{InsertModuleIdHere}] {message}");}
+public void Log(string message)
+{
+    Debug.Log($"[InsertModNameHere #{InsertModuleIdHere}] {message}");
+}
 ```
 Of course replace `InsertModNameHere` with the name of your module and `InsertModuleIdHere` with the actual variable name that holds your mod id
 
@@ -153,17 +162,26 @@ Some common exception(s):
 - **Exception: NullReferenceException: Object reference not set to an instance of an object at: SelectableManager.HandleInteract()**
     - Verify that none of your buttons (objects that have the KMSelectable component, excluding the mod itself) have any children in the inspector. The children variable should have a size of 0. The only time your buttons should have a size greater than 0 is if their OnInteract delegate returns true. See {on-interact-delegate} for more info.
 
-**Good** **INSERT IMAGE HERE** 
+**Good**
 
-**Bad** **INSERT IMAGE HERE**
+![image](https://github.com/user-attachments/assets/923f0f3a-a2e2-4354-81ae-3c5fe10473b2)
+
+**Bad**
+
+![image](https://github.com/user-attachments/assets/3c1a391f-dbb4-4c6b-b522-a7bf92a2ef41)
+
+
 
 Once you fix the issue(s), update the prefab and rebuild your mod and retest. If you don’t see anything wrong with your project in Unity, update the prefab and rebuild anyway. It’s possible that you changed something without building again. If you are still having issues, ask for help in [discord mod creation channel](https://discord.com/channels/160061833166716928/201105291830493193).
 ## Failed to build AssetBundle: No assets have been tagged for inclusion in the mod.bundle AssetBundle
 Select your prefab in the project window. In the bottom right corner, you will see a dropdown with the name `AssetBundle`, verify the selected option is `mod.bundle`. If you do not see it, make it. You should not see the error building again.
-**INSERT IMAGE HERE**
+![image](https://github.com/user-attachments/assets/af0b1d11-4e56-4359-b9bc-b1598863a02e)
+
 ## I can’t hear my sound effects
 * **If you can’t hear it in the Unity, but can in the game**, open the TestHarness’ inspector, and drag/drop your clips inside the variable that says “Audio Clips”
-**INSERT IMAGE HERE**
+
+![image](https://github.com/user-attachments/assets/b9a1494f-a765-4780-8c1b-67ad182b40f0)
+
 * **If you can’t hear it in the game, but can in Unity,** verify that the sound effects are added in `mod.bundle` The steps to do so are the same as adding the prefab to `mod.bundle`. See {mod-building-error} for more information.
 # Misc
 ## What is colorblind support, and how do I add it to my mod?
@@ -174,13 +192,14 @@ To add support, you must add a component called `KMColorblindMode` to the game o
 //assume objects has been assigned through the inspector
 [SerializeField]
 TextMesh colorBlindText;
+
 [SerializeField]
 KMColorblindMode colorblindScript;
+
 void Awake()
 {
-//shows the text if it's true, hides it if it's false
-colorBlindText.SetActive(colorblindScript.ColorblindModeActive);
-    
+    //shows the text if it's true, hides it if it's false
+    colorBlindText.SetActive(colorblindScript.ColorblindModeActive);
 }
 ```
 ### How do I get my logging to be "fancy" to have images and dropdowns?
@@ -198,8 +217,14 @@ Will be shown as the following in the LFA:
 Anything else you see in a log is done by the LFA parser and needs to be added through the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>), specifically {logFileAnalyzerDataJsLink} and [Logfile Analyzer Styling Data.css](<https://github.com/Timwi/KtaneContent/blob/master/More/Logfile%20Analyzer%20Styling%20Data.css>)
 
 **Note**: Although LFA support is a neat feature that improves digestion of information, it should not be relied on as an alternative of good logging. If your mod does not provide the necessary information (e.g calculation numbers, when someone strikes/solves), it cannot be added though LFA. Rule of thumb: Your logs should be easily readable and understandable by anyone who knows the mod without LFA 
-- **Bad** **INSERT IMAGE HERE** **Good** - **INSERT IMAGE HERE**
-- **Good (/w LFA)** **INSERT IMAGE HERE**
+- **Bad**
+  ![image](https://github.com/user-attachments/assets/e880e109-86a2-41fc-b446-e5306a1e7bdf)
+
+- **Good**
+  ![image](https://github.com/user-attachments/assets/c235b9d6-e1ff-4553-a2d2-8f550bb15c89)
+
+- **Good (/w LFA)**
+  ![image](https://github.com/user-attachments/assets/95934f38-3cc6-46f5-bf13-cd3afb640790)
 
 ### If you would like to request a mod to have LFA support
 - Go to the <#{lfaSupportThread}>
@@ -217,7 +242,20 @@ Anything else you see in a log is done by the LFA parser and needs to be added t
     - There is an optional property called `displayName` which can be seen for the mods `ASCII Art` and `Binary Cipher`. This should be only added to the object if the preferred display name is different than the `loggingTag`
 ```
 {
-tmoduleID: "insertModIdHere",loggingTag: "insertLoggingTagHere",matches: [{regex: /.+/,handler: function (matches, module) {module.push("test");return true;}},{ regex: /.+/ },]}
+    tmoduleID: "insertModIdHere",
+    loggingTag: "insertLoggingTagHere",
+    matches: [
+        {
+            regex: /.+/,
+            handler: function (matches, module)
+            {
+                module.push("test");
+                return true;
+            }
+        },
+        { regex: /.+/ },
+    ]
+}
 ```
 - Running a log including the targeted module should show all of it's content as a bullet point with the word `test`.
     - The variable `regex` is a sequence of characters that defines a search pattern, primarily used for string matching and manipulation. If something is captured in that regex it will be held in the `matches` variable as an array. The first element will be the entire string while subsequent elements will be the separated matches. If nothing is caught, it will be undefined.
@@ -232,4 +270,5 @@ tmoduleID: "insertModIdHere",loggingTag: "insertLoggingTagHere",matches: [{regex
     - Editing a dropdown that has already been pushed: `Forget Us Not`
 ### Why do I have to return true or false while adding a delegate to KMSelectable.OnInteract?
 The [wiki](<https://github.com/Qkrisi/ktanemodkit/wiki/KMSelectable>) states the return value of the delegate specifies “whether it should drill into children”. If you think of the module as a [tree](<https://en.wikipedia.org/wiki/Tree_(abstract_data_type)#:~:text=In%20computer%20science%2C%20a%20tree,a%20set%20of%20connected%20nodes.>), with the module being the root node, you can move to and from other children. A good example of this is the mod [Quadruple Simpleton Squared](<https://github.com/KTANE-MODS/Quadruple-Simpleton-Squared>). The root node is the mod itself, but if we select the top left section of the mod, that will be the current node since the delegate returns true. If we select the top left button, the interaction will occur but the current node will still be the top left section since the delegate of the button returns false. When we right click, the current node becomes the module again.\nIf you do not want any sections of your mod, all your buttons work as standard buttons, then you should have all of your KMSelectable OnInteract delegates return false and have no children. You can read a discussion about this [here](<https://discord.com/channels/160061833166716928/201105291830493193/1289045915117551637>).
-**INSERT IMAGE HERE**
+![image](https://github.com/user-attachments/assets/41d7c990-6be7-401f-a759-845070fcab78)
+
