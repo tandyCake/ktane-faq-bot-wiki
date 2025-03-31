@@ -9,15 +9,18 @@ First, verify that your question has truly not been answered here. Sometimes, we
     - Assuming you have a github account (see [What is GitHub? Is it necessary to get into modding?](https://github.com/BlckHawker/test/edit/main/README.md#what-is-github-is-it-necessary-to-get-into-modding) for more details), you can create your own repository using the modkit. Press `Use this template` -> `Create new repository`. Add a name and press `Create repository`. Clone your project to your device.
     - If you don't have a github account, you can get the project by pressing `Code` -> `Download zip`. Extract the project. It is recommended that you change the name of the folder to be whatever the name of your mod is: "The Simpleton" for example.
 2. Download [Unity Hub](<https://unity.com/download>) (optional for Windows)
+   
 Unity Hub is a tool that allows you to see all of your Unity projects in one place. It's optional, but highly recommended if you plan to make multiple Unity projects. **If you're a Mac/Linux user, this is not optional** for reasons explained in the next step. You can add a Unity project by selecting `Open` and selecting the folder of your project. It should be the one that contains `Assets` inside of it.
-3. Install [Unity version 2017.4.22f1](<https://unity.com/releases/editor/whats-new/2017.4.22>)
+4. Install [Unity version 2017.4.22f1](<https://unity.com/releases/editor/whats-new/2017.4.22>)
+
 This is the Unity version that the game was created on. Although you could theoretically use a different version of Unity to create mods, it's not recommended as there could be several game breaking bugs. If you installed Unity Hub, the application will ask you if you want to add any modules. **Mac and Linux users should add the \"Windows Build Support\" module** as it's required for the build of the mod to be created. If you missed this step, you can still add it by going to Unity Hub -> `Installs` -> press the gear next to the `2017.4.22f1` editor -> `Add modules` -> select `Windows Build Support` -> select `Continue`. Wait for said module to install. Close Unity Hub and any Unity projects you have open in order to verify it installed successfully. Before you open your project, make sure your editor version is set to `2017.4.22f1`.
-4. Install an IDE
+5. Install an IDE
+
 An IDE (Integrated Development Environment) is a tool that makes writing code **much** easier. It allows you to see what is wrong with your code without needing to constantly check Unity. It also color codes your words and has autocompletion which will make writing code quicker. Although you can write scripts by just using Notepad, it is not recommended. The most common IDEs for Windows are Visual Studio (VS) and Visual Studio Code (VS Code). Here are the [installations to both](<https://visualstudio.microsoft.com/downloads/>). Mac and Linux users should use [Rider](<https://www.jetbrains.com/rider/>). All require some setup to get working with Unity. Here are the steps to do so (Ignore the steps about installing packages as that is not supported in the Unity version for KTANE):
     - [VS Code](<https://code.visualstudio.com/docs/other/unity>)
     - [VS](<https://learn.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows>)
     - [Rider](<https://www.jetbrains.com/help/rider/Unity.html#start-using-rider-with-your-unity-project>)
-5. Add a plugin template (Optional)
+6. Add a plugin template (Optional)
 There are several pre-made templates that streamline the process of creating mods. Although optional, they are very useful for beginners. They can be found by pressing `KeepTalking ModKit` -> `Plugins` at the top of the Unity editor. Which one you use is up to personal preference.
 These are the steps to set up your project for modding. See other [Getting Started](https://github.com/BlckHawker/test/edit/main/README.md#getting-started) commands if you require assistance with how to start modding.
 ## I don’t know how to start learning C#/Unity. How do I know when I learned enough to start modding?
