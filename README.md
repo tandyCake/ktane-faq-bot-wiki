@@ -6,7 +6,7 @@ First, verify that your question has truly not been answered here. Sometimes, we
 # Getting Started
 ## How do I get into modding?
 1. Download the [KTANE Modkit](<https://github.com/Qkrisi/ktanemodkit>)
-    - Assuming you have a github account (see [What is GitHub? Is it necessary to get into modding?](https://github.com/BlckHawker/test/edit/main/README.md#what-is-github-is-it-necessary-to-get-into-modding) for more details), you can create your own repository using the modkit. Press `Use this template` -> `Create new repository`. Add a name and press `Create repository`. Clone your project to your device.
+    - Assuming you have a github account (see [What is GitHub? Is it necessary to get into modding?](#what-is-github-is-it-necessary-to-get-into-modding) for more details), you can create your own repository using the modkit. Press `Use this template` -> `Create new repository`. Add a name and press `Create repository`. Clone your project to your device.
     - If you don't have a github account, you can get the project by pressing `Code` -> `Download zip`. Extract the project. It is recommended that you change the name of the folder to be whatever the name of your mod is: "The Simpleton" for example.
 2. Download [Unity Hub](<https://unity.com/download>) (optional for Windows)
 
@@ -19,12 +19,12 @@ This is the Unity version that the game was created on. Although you could theor
 4. Install an IDE
 
 An IDE (Integrated Development Environment) is a tool that makes writing code **much** easier. It allows you to see what is wrong with your code without needing to constantly check Unity. It also color codes your words and has autocompletion which will make writing code quicker. Although you can write scripts by just using Notepad, it is not recommended. The most common IDEs for Windows are Visual Studio (VS) and Visual Studio Code (VS Code). Here are the [installations to both](<https://visualstudio.microsoft.com/downloads/>). Mac and Linux users should use [Rider](<https://www.jetbrains.com/rider/>). All require some setup to get working with Unity. Here are the steps to do so (Ignore the steps about installing packages as that is not supported in the Unity version for KTANE):
-    - [VS Code](<https://code.visualstudio.com/docs/other/unity>)
-    - [VS](<https://learn.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows>)
-    - [Rider](<https://www.jetbrains.com/help/rider/Unity.html#start-using-rider-with-your-unity-project>)
+  - [VS Code](<https://code.visualstudio.com/docs/other/unity>)
+  - [VS](<https://learn.microsoft.com/en-us/visualstudio/gamedev/unity/get-started/getting-started-with-visual-studio-tools-for-unity?pivots=windows>)
+  - [Rider](<https://www.jetbrains.com/help/rider/Unity.html#start-using-rider-with-your-unity-project>)
 5. Add a plugin template (Optional)
 There are several pre-made templates that streamline the process of creating mods. Although optional, they are very useful for beginners. They can be found by pressing `KeepTalking ModKit` -> `Plugins` at the top of the Unity editor. Which one you use is up to personal preference.
-These are the steps to set up your project for modding. See other [Getting Started](https://github.com/BlckHawker/test/edit/main/README.md#getting-started) commands if you require assistance with how to start modding.
+These are the steps to set up your project for modding. See other [Getting Started](#getting-started) commands if you require assistance with how to start modding.
 ## I don’t know how to start learning C#/Unity. How do I know when I learned enough to start modding?
 * C# resources:
     - [Video Tutorials](<https://www.youtube.com/playlist?list=PL82C6-O4XrHcblXkHA4dLcnb_ipVkKHch>)
@@ -34,7 +34,8 @@ These are the steps to set up your project for modding. See other [Getting Start
     * [Unity Tutorial](<https://www.youtube.com/watch?v=XtQMytORBmM>)
     * [Unity Workshop](<https://youtu.be/XcK0Y_PVyu8>):  very similar to the first video teaching-wise, but you can try figuring out how to do both projects on your own for more practice
     * [Unity Documentation](<https://docs.unity.com>)
-There isn’t a real answer to what is “enough” to start modding. You will learn new things as you continue using the tools. If you need to ask a question on how to do something, try googling it to see if someone else has asked the question before. If not, or you don’t understand the answer, you can try following what other people did in their mods (look at [I want my mod to do [X] like the mod [Y] does. How do I do that?](https://github.com/BlckHawker/test/edit/main/README.md#i-want-my-mod-to-do-x-like-the-mod-y-does-how-do-i-do-that) for more details). If you need more assistance, ask your question in [discord mod creation channel](https://discord.com/channels/160061833166716928/201105291830493193).
+
+There isn’t a real answer to what is “enough” to start modding. You will learn new things as you continue using the tools. If you need to ask a question on how to do something, try googling it to see if someone else has asked the question before. If not, or you don’t understand the answer, you can try following what other people did in their mods (look at [I want my mod to do [X] like the mod [Y] does. How do I do that?](#i-want-my-mod-to-do-x-like-the-mod-y-does-how-do-i-do-that) for more details). If you need more assistance, ask your question in [discord mod creation channel](https://discord.com/channels/160061833166716928/201105291830493193).
 ## Are there any modding tutorials I can follow?
 Yes! There are several tutorials, though some of the information is outdated, the general steps are the same. Be sure to look at the [modkit wiki](<https://github.com/Qkrisi/ktanemodkit/wiki>) to see if something has been updated. It is also a good resource for understanding some methods/classes the modkit provides.
 ### Regular Mods
@@ -45,7 +46,9 @@ Yes! There are several tutorials, though some of the information is outdated, th
 ### Boss Modules
 * At the time of writing this (October 12th, 2024), there aren’t any noticeable tutorials for bosses. As for now, it’s recommended to look at the most simple form of a boss (Forget It Not)’s [source code](<https://github.com/VFlyer/FlyersOtherModules/blob/master/Assets/ForgetItNot/ForgetItNotHandler.cs>) as a reference.
 ## I don’t have time to look through tutorials/documentations that are this long. Is there a faster way to get started?
-Short answer is no. If you want to get into a position of making your modules on your own, you will need to put in the effort of learning. It’s okay if you don’t get it right away as everyone learns at their own pace, but there isn’t a shortcut.\nIf you feel intimidated by the learning process, start small and grow from there. Try making a basic mod; recreate The Simpleton for example, and use what you learned in order to make your “dream” module. If you don’t like a certain aspect of mod creating: scripting, modeling, manual making, etc., you can ping the appropriate roles in [discord mod creation channel](https://discord.com/channels/160061833166716928/201105291830493193) to see if anyone wants to collaborate.
+Short answer is no. If you want to get into a position of making your modules on your own, you will need to put in the effort of learning. It’s okay if you don’t get it right away as everyone learns at their own pace, but there isn’t a shortcut.
+
+If you feel intimidated by the learning process, start small and grow from there. Try making a basic mod; recreate The Simpleton for example, and use what you learned in order to make your “dream” module. If you don’t like a certain aspect of mod creating: scripting, modeling, manual making, etc., you can ping the appropriate roles in [discord mod creation channel](https://discord.com/channels/160061833166716928/201105291830493193) to see if anyone wants to collaborate.
 * Proofreader: People who can read your manual to verify it makes sense grammatically and logically
 * 3D Creator: People who know how to model
 * Mod Creator: Everyone else. Mainly people who can implement the entire mod, or just TP 
@@ -100,11 +103,11 @@ Download and extract the [manual template](<https://ktane.timwi.de/More/Template
 * In the manual template, open the `JSON` folder. Open `Module Name.json` in your text editor and paste the content you copied
 * Rename `Module Name.json` to your actual module name.
 * [Video demonstration](<https://youtu.be/YobuGSBl3i0?t=11850>)
-6. **Lint your manual**: Zip the entire manual folder (what was originally called `Template Manual`), and send it to Logbot with the message `!lint` via a dm. The bot will check if there is anything wrong with your manual (including any images and the JSON). If you see any warnings, fix them, and lint the new version of the manual. Continue to do this until the bot reacts with :thumbsup:. See [How do I add my manual to the repository of manuals?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-add-my-manual-to-the-repository-of-manuals) to see how you can upload your manual to the repository of manuals.
+6. **Lint your manual**: Zip the entire manual folder (what was originally called `Template Manual`), and send it to Logbot with the message `!lint` via a dm. The bot will check if there is anything wrong with your manual (including any images and the JSON). If you see any warnings, fix them, and lint the new version of the manual. Continue to do this until the bot reacts with :thumbsup:. See [How do I add my manual to the repository of manuals?](#how-do-i-add-my-manual-to-the-repository-of-manuals) to see how you can upload your manual to the repository of manuals.
 ## How do I add my manual to the repository of manuals?
 Note: This answer also applies if you are making edits to a manual existing on the repo
 
-1. **Verify your manual is linted**. Run [How do I create my manual?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-create-my-manual) for more details.
+1. **Verify your manual is linted**. Run [How do I create my manual?](#how-do-i-create-my-manual) for more details.
 2. **Make your manual public for a repo contributor to see**. People who have the repo maintainer role have direct push access to the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>). They (or another repo contributor) will look at your manual, make any necessary edits and upload it to the repository. There are two ways to give a maintainer your manual:
     * **Send it to [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985)**
         * If it's a new manual, upload the zip to [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985) with a message saying it's a new module.
@@ -113,7 +116,7 @@ Note: This answer also applies if you are making edits to a manual existing on t
         * If you are familiar with git, you can clone the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>), and make a pull request with your added manual. You can read through the [Repo Maintainer Responsibilities](<https://docs.google.com/document/d/10rabFJES6avb8ime3Cw5LCd9p0663PbqVqzUrfehYac/edit?usp=sharing>) checklist in order to verify that your manual is valid. Since not many maintainers look at pull requests on GitHub, it's recommended you link your PR into [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985) along with a message briefly explaining what the PR is. It is expected that you do not touch the PR after it is published. If you need to make a change, close the PR, make the change, and make a new one. Here is a [repo contributor video tutorial](<https://youtu.be/2Lxl7OAafIg>) that demonstrates these steps.
 3. **Wait for a maintainer to upload it to the repository.**
     * You will know if your module is being worked on if it has the reaction :bip:. Please do not delete the request if it has that reaction. If there is something that you missed that you want added to the manual, make a thread to the original request with a message describing the new changes.
-    * Be patient as being a maintainer is a volunteer position. See [How long does it take for a request to be fulfilled? Can I speed up the process in any way?](https://github.com/BlckHawker/test/edit/main/README.md#how-long-does-it-take-for-a-request-to-be-fulfilled-can-i-speed-up-the-process-in-any-way) on how to make requests be handled faster. See [How do I become a maintainer?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-become-a-maintainer) on how to become a maintainer.
+    * Be patient as being a maintainer is a volunteer position. See [How long does it take for a request to be fulfilled? Can I speed up the process in any way?](#how-long-does-it-take-for-a-request-to-be-fulfilled-can-i-speed-up-the-process-in-any-way) on how to make requests be handled faster. See [How do I become a maintainer?](#how-do-i-become-a-maintainer) on how to become a maintainer.
 ## I would like to make changes on my manual that is already on the Repository of Manuals.
 There are two ways:
 1. **Make a request in** [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985) of what you want changed. Be specific so repo contributors can handle the request without needing to know the manual
@@ -127,13 +130,13 @@ There are two ways:
         ![image](https://github.com/user-attachments/assets/6198734f-2126-46c9-8d2a-39d5033883f9)
     2. **Make your changes**
     3. **Lint your manual** the same way you did while creating the manual.
-    4. **Publish your changes for review**. These are the same steps as uploading a new manual. Run [How do I add my manual to the repository of manuals?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-add-my-manual-to-the-repository-of-manuals) and look at step two for more details.
+    4. **Publish your changes for review**. These are the same steps as uploading a new manual. Run [How do I add my manual to the repository of manuals?](#how-do-i-add-my-manual-to-the-repository-of-manuals) and look at step two for more details.
 ## How long does it take for a request to be fulfilled? Can I speed up the process in any way?
 Being a contributor the repository is an unpaid voluntary position. They are not obligated to get requests done within a certain amount of time. Although you cannot make a contributor get to a request faster, you can make the process of reviewing the request faster by following the [Repo Maintainer Responsibilities](<https://docs.google.com/document/d/10rabFJES6avb8ime3Cw5LCd9p0663PbqVqzUrfehYac/edit?usp=sharing>) checklist. It's not necessary to follow all of the steps, but the more that are done correctly, the faster the request will be handled.
 ## How do I become a maintainer?
 To become a maintainer, you must show that you have experience with git and handling requests competently. So you must become a contributor first.
 
-As a contributor, It's recommended having a fork of the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>) so you can easily make PRs. You can then make PRs of requests in [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985) (see [How do I add my manual to the repository of manuals?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-add-my-manual-to-the-repository-of-manuals) and [I would like to make changes on my manual that is already on the Repository of Manuals.](https://github.com/BlckHawker/test/edit/main/README.md#i-would-like-to-make-changes-on-my-manual-that-is-already-on-the-repository-of-manuals)). Be sure to bip (react to the request with :bip:) in order to notify other contributors that you are working on the request. Once you make your PR for a request, react to the request with :solved: in order to notify others that you have completed the request. Once you have handled enough requests that you feel comfortable doing it, you can then message a maintainer, and they will have a discussion with others if you would be a good candidate. The more requests you handle correctly, the higher your chances are of becoming a maintainer.
+As a contributor, It's recommended having a fork of the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>) so you can easily make PRs. You can then make PRs of requests in [discord repo request channel](https://discord.com/channels/160061833166716928/612414629179817985) (see [How do I add my manual to the repository of manuals?](#how-do-i-add-my-manual-to-the-repository-of-manuals) and [I would like to make changes on my manual that is already on the Repository of Manuals.](#i-would-like-to-make-changes-on-my-manual-that-is-already-on-the-repository-of-manuals)). Be sure to bip (react to the request with :bip:) in order to notify other contributors that you are working on the request. Once you make your PR for a request, react to the request with :solved: in order to notify others that you have completed the request. Once you have handled enough requests that you feel comfortable doing it, you can then message a maintainer, and they will have a discussion with others if you would be a good candidate. The more requests you handle correctly, the higher your chances are of becoming a maintainer.
 
 ## Common Errors
 ### My text is going through the back of the bomb
@@ -167,7 +170,7 @@ Of course replace `InsertModNameHere` with the name of your module and `InsertMo
 Open the log in the [Logfile Analyzer](<https://ktane.timwi.de/More/Logfile%20Analyzer.html>) and check if there is a button in the top left called “View Exceptions”. If there is, clicking on said button will show you an exception that was thrown while the mod was running. Fixing the exception will most likely make the mod work in the game.
 Some common exception(s):
 - **Exception: NullReferenceException: Object reference not set to an instance of an object at: SelectableManager.HandleInteract()**
-    - Verify that none of your buttons (objects that have the KMSelectable component, excluding the mod itself) have any children in the inspector. The children variable should have a size of 0. The only time your buttons should have a size greater than 0 is if their OnInteract delegate returns true. See [Why do I have to return true or false while adding a delegate to KMSelectable.OnInteract?](https://github.com/BlckHawker/test/edit/main/README.md#why-do-i-have-to-return-true-or-false-while-adding-a-delegate-to-kmselectableoninteract) for more info.
+    - Verify that none of your buttons (objects that have the KMSelectable component, excluding the mod itself) have any children in the inspector. The children variable should have a size of 0. The only time your buttons should have a size greater than 0 is if their OnInteract delegate returns true. See [Why do I have to return true or false while adding a delegate to KMSelectable.OnInteract?](#why-do-i-have-to-return-true-or-false-while-adding-a-delegate-to-kmselectableoninteract) for more info.
 
 **Good**
 
@@ -193,7 +196,7 @@ Select your prefab in the project window. In the bottom right corner, you will s
 
 ![image](https://github.com/user-attachments/assets/b9a1494f-a765-4780-8c1b-67ad182b40f0)
 
-* **If you can’t hear it in the game, but can in Unity,** verify that the sound effects are added in `mod.bundle` The steps to do so are the same as adding the prefab to `mod.bundle`. See [Failed to build AssetBundle: No assets have been tagged for inclusion in the mod.bundle AssetBundle](https://github.com/BlckHawker/test/edit/main/README.md#failed-to-build-assetbundle-no-assets-have-been-tagged-for-inclusion-in-the-modbundle-assetbundle) for more information.
+* **If you can’t hear it in the game, but can in Unity,** verify that the sound effects are added in `mod.bundle` The steps to do so are the same as adding the prefab to `mod.bundle`. See [Failed to build AssetBundle: No assets have been tagged for inclusion in the mod.bundle AssetBundle](#failed-to-build-assetbundle-no-assets-have-been-tagged-for-inclusion-in-the-modbundle-assetbundle) for more information.
 # Misc
 ## What is colorblind support, and how do I add it to my mod?
 Colorblind support allows players with different types of color vision to play the game without visual impairments hindering their experience. While it's not required for a mod to have colorblind support, it's recommended as not having it will limit its visibility.
@@ -214,7 +217,7 @@ void Awake()
 }
 ```
 ### How do I get my logging to be "fancy" to have images and dropdowns?
-The [Logfile Analyzer](<https://ktane.timwi.de/More/Logfile%20Analyzer.html>) (\"LFA\" for short) is a section on the [Repository of Manual Pages](<https://ktane.timwi.de>) that parses the `output_log.txt` file. The txt file is commonly called the "log" as it pertains all of the log printed statements from each mod. By default it will take each log line and make them their own bullet point. See [My logs aren't appearing in the Log File Analyzer](https://github.com/BlckHawker/test/edit/main/README.md#my-logs-arent-appearing-in-the-log-file-analyzer) for more info. For example, the following debug lines:
+The [Logfile Analyzer](<https://ktane.timwi.de/More/Logfile%20Analyzer.html>) (\"LFA\" for short) is a section on the [Repository of Manual Pages](<https://ktane.timwi.de>) that parses the `output_log.txt` file. The txt file is commonly called the "log" as it pertains all of the log printed statements from each mod. By default it will take each log line and make them their own bullet point. See [My logs aren't appearing in the Log File Analyzer](#my-logs-arent-appearing-in-the-log-file-analyzer) for more info. For example, the following debug lines:
 ```cs
 Debug.Log("[The Simpleton #1] a");
 Debug.Log("[The Simpleton #1] b");
@@ -245,7 +248,7 @@ Anything else you see in a log is done by the LFA parser and needs to be added t
     - Any logs files (txts). Preferably of all the variations of what can happen (including strikes and resets)
 - Do note that LFA is a niche portion of contribution, so do expect long wait times before your request gets done
 ### If you would like to implement LFA support to a mod
--  Adding LFA support counts as being a repo contributor (see [How do I become a maintainer?](https://github.com/BlckHawker/test/edit/main/README.md#how-do-i-become-a-maintainer) for more details), so you will claim the request in [discord LFA thread](https://discord.com/channels/160061833166716928/1018575584009400350).
+-  Adding LFA support counts as being a repo contributor (see [How do I become a maintainer?](#how-do-i-become-a-maintainer) for more details), so you will claim the request in [discord LFA thread](https://discord.com/channels/160061833166716928/1018575584009400350).
 -  Open [Logfile Analyzer Data.js](<https://github.com/Timwi/KtaneContent/blob/master/More/Logfile%20Analyzer%20Data.js>) in your IDE and find where the mod will go **based on the module name** in alphabetical order (excluding the word `The` in the title).
 -  Once you find where the module goes create an object like so:
     - `moduleID` is the id of the mod
