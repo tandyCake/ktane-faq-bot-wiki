@@ -159,13 +159,20 @@ The `[{InsertModNameHere} #{InsertModuleIdHere}]` format is what the LFA looks f
 
 It's highly recommend making your own log function, so you don't have to spell the mod name and id every single time:
 ```cs
-public void Log(string message)
+private void Log(string message)
 {
     Debug.Log($"[InsertModNameHere #{InsertModuleIdHere}] {message}");
 }
 ```
-Of course replace `InsertModNameHere` with the name of your module and `InsertModuleIdHere` with the actual variable name that holds your mod id
+Of course replace `InsertModNameHere` with the name of your module and `InsertModuleIdHere` with the actual variable name that holds your mod id. 
 
+You can also make this work with the syntax of String.Format() as follows:
+```cs
+private void Log(string message, params string[] args) {
+		Debug.LogFormat("[InsertModNameHere #{0}] {1}", 
+			InsertModuleIdHere, string.Format(message, args));
+}
+```
 ## My mod works fine in Unity, but doesn’t in the game.
 Open the log in the [Logfile Analyzer](<https://ktane.timwi.de/More/Logfile%20Analyzer.html>) and check if there is a button in the top left called “View Exceptions”. If there is, clicking on said button will show you an exception that was thrown while the mod was running. Fixing the exception will most likely make the mod work in the game.
 Some common exception(s):
@@ -216,7 +223,7 @@ void Awake()
     colorBlindText.SetActive(colorblindScript.ColorblindModeActive);
 }
 ```
-### How do I get my logging to be "fancy" to have images and dropdowns?
+### How do I get my logging to be "fancy" to have tables, dropdowns, graphics, etc.?
 The [Logfile Analyzer](<https://ktane.timwi.de/More/Logfile%20Analyzer.html>) (\"LFA\" for short) is a section on the [Repository of Manual Pages](<https://ktane.timwi.de>) that parses the `output_log.txt` file. The txt file is commonly called the "log" as it pertains all of the log printed statements from each mod. By default it will take each log line and make them their own bullet point. See [My logs aren't appearing in the Log File Analyzer](#my-logs-arent-appearing-in-the-log-file-analyzer) for more info. For example, the following debug lines:
 ```cs
 Debug.Log("[The Simpleton #1] a");
@@ -228,24 +235,45 @@ Will be shown as the following in the LFA:
 - b
 - c
 
+Each line should start with the bracketed discriminator as expressed previously, which allows the LFA to identify which message(s) belong to which module. Note also that any newlines in a logging message will split the logging across multiple lines and prevent the logging from being displayed correctly. (Although, this can be corrected on the LFA-end.) For example:
+```cs
+Debug.Log("[YourMod #1] The grid is: a b c\nd e f\ng h i");
+```
+will be read by the parser as
+```
+[YourMod #1] The grid is: a b c
+d e f
+g h i
+```
+and thus by default will be logged only as
+* The grid is: a b c
+
+A properly-logging example would be the following code:
+```cs
+Debug.Log("[YourMod #1] The grid is:");
+Debug.Log("[YourMod #1] a b c");
+Debug.Log("[YourMod #1] d e f");
+Debug.Log("[YourMod #1] g h i");
+```
 Anything else you see in a log is done by the LFA parser and needs to be added through the [Ktane Content repository](<https://github.com/Timwi/KtaneContent>), specifically [Logfile Analyzer Data.js](<https://github.com/Timwi/KtaneContent/blob/master/More/Logfile%20Analyzer%20Data.js>) and [Logfile Analyzer Styling Data.css](<https://github.com/Timwi/KtaneContent/blob/master/More/Logfile%20Analyzer%20Styling%20Data.css>)
 
-**Note**: Although LFA support is a neat feature that improves digestion of information, it should not be relied on as an alternative of good logging. If your mod does not provide the necessary information (e.g calculation numbers, when someone strikes/solves), it cannot be added though LFA. Rule of thumb: Your logs should be easily readable and understandable by anyone who knows the mod without LFA 
+**Note**: Although LFA support is a neat feature that improves digestion of information, it should not be relied on as an alternative of good logging. If your mod does not provide the necessary information (e.g calculation numbers, when someone strikes/solves), it cannot be added though LFA. Rule of thumb: Your logs should be easily readable and understandable by anyone who knows the mod without the LFA. 
+##### That being said, if you're intending to implement your own LFA support in a timely manner, and having somewhat rough logging facilitates you being able to parse it for your own code, bombs away! But don't expect other people to clam through your sloppy writing.
 - **Bad**
   ![image](https://github.com/user-attachments/assets/e880e109-86a2-41fc-b446-e5306a1e7bdf)
 
 - **Good**
   ![image](https://github.com/user-attachments/assets/c235b9d6-e1ff-4553-a2d2-8f550bb15c89)
 
-- **Good (/w LFA)**
+- **Great! (w/ LFA)**
   ![image](https://github.com/user-attachments/assets/95934f38-3cc6-46f5-bf13-cd3afb640790)
 
 ### If you would like to request a mod to have LFA support
 - Go to the [discord LFA thread](https://discord.com/channels/160061833166716928/1018575584009400350)
 - Write the name of the module you want LFA support added to. Bonus points if you provide any of the following as that makes the contributor's job easier:
-    - Explanation of what you want to lfa to look like
-    - Sketches of the lfa
-    - Any logs files (txts). Preferably of all the variations of what can happen (including strikes and resets)
+    - Explanation of what you want to support to look like
+    - Sketches of the support 
+    - Any logs files (.txt files). Preferably of all the variations of what can happen (including strikes and resets)
 - Do note that LFA is a niche portion of contribution, so do expect long wait times before your request gets done
 ### If you would like to implement LFA support to a mod
 -  Adding LFA support counts as being a repo contributor (see [How do I become a maintainer?](#how-do-i-become-a-maintainer) for more details), so you will claim the request in [discord LFA thread](https://discord.com/channels/160061833166716928/1018575584009400350).
