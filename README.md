@@ -275,41 +275,64 @@ Anything else you see in a log is done by the LFA parser and needs to be added t
     - Sketches of the support 
     - Any logs files (.txt files). Preferably of all the variations of what can happen (including strikes and resets)
 - Do note that LFA is a niche portion of contribution, so do expect long wait times before your request gets done
-### If you would like to implement LFA support to a mod
--  Adding LFA support counts as being a repo contributor (see [How do I become a maintainer?](#how-do-i-become-a-maintainer) for more details), so you will claim the request in [discord LFA thread](https://discord.com/channels/160061833166716928/1018575584009400350).
+# So, you wanna implement LFA support for a mod? 
+*Section written by tandyCake*
+-  Adding LFA support counts as being a repo contributor (see [How do I become a maintainer?](#how-do-i-become-a-maintainer) for more details), so you will claim the request in [Discord LFA thread](https://discord.com/channels/160061833166716928/1018575584009400350).
 -  Open [Logfile Analyzer Data.js](<https://github.com/Timwi/KtaneContent/blob/master/More/Logfile%20Analyzer%20Data.js>) in your IDE and find where the mod will go **based on the module name** in alphabetical order (excluding the word `The` in the title).
--  Once you find where the module goes create an object like so:
-    - `moduleID` is the id of the mod
-    - `loggingTag` is the the name of the module in the square brackets. In the `Debug.Log` example above, the logging tag would be `The Simpleton`.
-    - There is an optional property called `displayName` which can be seen for the mods `ASCII Art` and `Binary Cipher`. This should be only added to the object if the preferred display name is different than the `loggingTag`
-```
+- Once you find the spot for you support to go, create a Javascript (JS) object for your support. **Let's take a look at a simple example for the module ID Verification**.
+
+```js
 {
-    moduleID: "insertModIdHere",
-    loggingTag: "insertLoggingTagHere",
-    matches: [
-        {
-            regex: /.+/,
-            handler: function (matches, module)
-            {
-                module.push("test");
-                return true;
-            }
-        },
-        { regex: /.+/ },
-    ]
-}
+	moduleID: "IDVerification",
+	loggingTag: "ID Verification",
+	matches: [
+		{
+			regex: /Card ./,
+			handler: function (matches, module) {
+				let lines = readTaggedLines(2);
+				module.push([matches.input, lines]);
+				return true;
+			}
+		},
+		{ regex: /.+/ }
+	]
+},
 ```
-- Running a log including the targeted module should show all of it's content as a bullet point with the word `test`.
-    - The variable `regex` is a sequence of characters that defines a search pattern, primarily used for string matching and manipulation. If something is captured in that regex it will be held in the `matches` variable as an array. The first element will be the entire string while subsequent elements will be the separated matches. If nothing is caught, it will be undefined.
-        - [Regex tutorial](<https://www.youtube.com/watch?v=rhzKDrUiJVk>)
-        - [regex 101](<https://regex101.com>): Site used to test regex. Highly recommended to paste the content of the log in the bottom textbox, and test what regex targets what you're looking for
-    - The regex object in `matches` will work in order of top to bottom. The `return true` statement at the end will make sure that none of the other regex objects are ran through (so no duplicate lines are repeated). It's recommended to **always have `return true` at the end of each handler method**
-    - The `{ regex: /.+/ }` object is a catch all so the the line appears as a bullet point just like the default. So pretty much doing the same as the first regex object. You should keep this if there are some logs that you want to be just bullet points, and replace the first object with a different regex statement.
-- There are many things you can do for LFA, but the main ones are adding dropdowns and making svgs. It's recommended you ctrl + f and look at other examples in order to figure out what you want to do. Here are some examples to get you started:
-    - Add dropdowns: `Directional Button`
-    - Add nested drop down: `Character Slots`
-    - Add grid of squares in a svg: `Directional Button`
-    - Editing a dropdown that has already been pushed: `Forget Us Not`
+The JS object that I'm speaking of is the whole block shown above, surrounded by curly braces. This support is one of many in a big list in the `Logfile Analyzer Data.js` file. First, let's break down what's happening in the three fields at the top of the object.
+1. `moduleID` is the ID of the module as included in the KMBombModule component or in the mod JSON.
+2. `loggingTag` is, essentially, the module name as it is listed in between the square brackets in the module's logging. (e.g. "[<u>ID Verification</u> #1]) **Note that each log message processed by the LFA has its logging tag and the surrounding brackets trimmed before processing.**
+	- In some cases, there may be an optional field, `displayName` which is simply the display name of the module. This should be included if it differs from the logging tag. For an example of this, see the appropriately named [A Mistake](https://github.com/Timwi/KtaneContent/blob/master/More/Logfile%20Analyzer%20Data.js#L14410-L14414).
+3. `matches`, which contains a list of objects which each represent a case that will be processed by the LFA. Each of these is its own object in curly braces. This support has two.
+
+Let's take a look at one of the objects in `matches`.
+```js
+{
+	regex: /Card ./,
+	handler: function (matches, module) {
+		let lines = readTaggedLines(2);
+		module.push([matches.input, lines]);
+		return true;
+	}
+},
+```
+Each of these objects has two and only two fields:
+1. `regex`, a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) which is compared against each log message. Learning how to read and write regexes (regices?) is an incredibly handy skill for programming in general. My reommended tool for writing and debugging these is [RegExr](https://regexr.com/). 
+2. `handler`, a function which is executed if the log message matches the regex pattern. Each of these functions has two parameters:
+	1. `matches` is the result of performing `regex`.match() on the input log message. What you need to know about this data type is:
+		- `matches.input` returns the input (the log message).
+		- `matches[0]` returns the substring of the input which matched the pattern.
+		- `matches[n]` returns the substring matching the *n*th group (one-indexed) of the regex. Groups are signified by parentheses and can be analyzed in the "Details" menu of RegExr.
+	2. `module` is a JS object representing the specific instance of the module which is being handled. 
+		- Custom fields can be added to this object in order to store variables *across* different logging messages, which can be incredibly helpful! 
+		- `module` also is the means through which all messages are sent to the log UI via the multifaceted `module.push()` function. More on this later...
+
+So, in the example shown, each logging message is checked against the regex `/Card ./`. If it's a match, the LFA will read the next two lines of logging before sending them to the log in a dropdown. These functions will be explained in much greater detail later, but one might still ask the purpose of the `return true;` statement which ends the handler.
+
+The answer lies in the second object in the `matches` array:
+`{ regex: /.+/ }`
+Essentially, when LFA support is written for a module, it overwrites the default behavior of sending all log messages to the log UI. Instead, each log message is checked against the `regex` of each object in `matches` in order, and if a match is a success, the corresponding handler is executed. If no object's `regex` is a success, the log message is discarded. This explains what the object above does. The `/.+/` regex is a catch-all, while the lack of a `handler` function causes the matching message(s) to be sent to the log UI normally. Effectively, this restores the default logging behavior.
+
+So why `return true;`? When the LFA traverses the elements of `matches`, it doesn't ordinarily stop traversal when a `handler` is called. This means that when a catch-all regex is included, a message triggering the first regex will also trigger the catch-all, resulting in duplicate log messages. To get around this, a `return true;` statement is included in the first handler, which signals the LFA to stop traversing `matches`.
 ### Why do I have to return true or false while adding a delegate to KMSelectable.OnInteract?
 The [wiki](<https://github.com/Qkrisi/ktanemodkit/wiki/KMSelectable>) states the return value of the delegate specifies “whether it should drill into children”. If you think of the module as a [tree](<https://en.wikipedia.org/wiki/Tree_(abstract_data_type)#:~:text=In%20computer%20science%2C%20a%20tree,a%20set%20of%20connected%20nodes.>), with the module being the root node, you can move to and from other children. A good example of this is the mod [Quadruple Simpleton Squared](<https://github.com/KTANE-MODS/Quadruple-Simpleton-Squared>). The root node is the mod itself, but if we select the top left section of the mod, that will be the current node since the delegate returns true. If we select the top left button, the interaction will occur but the current node will still be the top left section since the delegate of the button returns false. When we right click, the current node becomes the module again.\nIf you do not want any sections of your mod, all your buttons work as standard buttons, then you should have all of your KMSelectable OnInteract delegates return false and have no children. You can read a discussion about this [here](<https://discord.com/channels/160061833166716928/201105291830493193/1289045915117551637>).
 ![image](https://github.com/user-attachments/assets/41d7c990-6be7-401f-a759-845070fcab78)
